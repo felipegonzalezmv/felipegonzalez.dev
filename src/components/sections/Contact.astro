@@ -1,0 +1,156 @@
+---
+import { SITE, SOCIAL_LINKS } from '@data/site';
+---
+
+<section id="contact" class="contact section">
+  <div class="container">
+    <div class="contact-content">
+      <div class="contact-info">
+        <h2 class="section-title">Let's Work Together</h2>
+        <p class="contact-description">
+          I'm currently available for freelance work and full-time opportunities. 
+          If you have a project in mind or just want to chat, feel free to reach out!
+        </p>
+        
+        <div class="contact-details">
+          <a href={`mailto:${SITE.email}`} class="contact-link">
+            <span class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </span>
+            <span class="contact-text">{SITE.email}</span>
+          </a>
+          
+          <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+            </span>
+            <span class="contact-text">@felipegonzalezmv</span>
+          </a>
+          
+          <div class="contact-link">
+            <span class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </span>
+            <span class="contact-text">{SITE.location}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-cta">
+        <div class="cta-card">
+          <h3 class="cta-title">Ready to start a project?</h3>
+          <p class="cta-description">
+            Send me an email and I'll get back to you within 24 hours.
+          </p>
+          <a href={`mailto:${SITE.email}`} class="btn btn-primary">
+            Send an Email
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    background: var(--color-bg-secondary);
+  }
+  
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+  
+  @media (min-width: 768px) {
+    .contact-content {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+    }
+  }
+  
+  .contact-description {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-xl);
+  }
+  
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+  }
+  
+  a.contact-link:hover {
+    background: var(--color-border);
+  }
+  
+  .contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-md);
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+  
+  .contact-text {
+    font-size: 0.9375rem;
+    color: var(--color-text);
+    font-weight: 500;
+  }
+  
+  .contact-cta {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cta-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    text-align: center;
+    width: 100%;
+  }
+  
+  .cta-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .cta-description {
+    font-size: 0.9375rem;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .cta-card .btn {
+    width: 100%;
+    justify-content: center;
+  }
+</style>
