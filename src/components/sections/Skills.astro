@@ -1,0 +1,102 @@
+---
+import { SKILLS, SKILL_CATEGORIES } from '@data/skills';
+
+const groupedSkills = SKILLS.reduce((acc, skill) => {
+  if (!acc[skill.category]) {
+    acc[skill.category] = [];
+  }
+  acc[skill.category].push(skill);
+  return acc;
+}, {} as Record<string, typeof SKILLS>);
+---
+
+<section id="skills" class="skills section">
+  <div class="container">
+    <h2 class="section-title">Skills & Technologies</h2>
+    <p class="skills-intro">
+      Technologies and tools I've been working with throughout my career
+    </p>
+    
+    <div class="skills-grid">
+      {Object.entries(groupedSkills).map(([category, skills]) => (
+        <div class="skill-category">
+          <h3 class="category-title">{SKILL_CATEGORIES[category as keyof typeof SKILL_CATEGORIES]}</h3>
+          <div class="skill-tags">
+            {skills.map((skill) => (
+              <span class="skill-tag">{skill.name}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-intro {
+    font-size: 1.0625rem;
+    margin-bottom: var(--space-2xl);
+    max-width: 600px;
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  
+  @media (min-width: 640px) {
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .skills-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .skill-category {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    transition: all var(--transition-normal);
+  }
+  
+  .skill-category:hover {
+    border-color: var(--color-accent);
+  }
+  
+  .category-title {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+  }
+  
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  
+  .skill-tag {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--color-bg);
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-sm);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+  }
+  
+  .skill-tag:hover {
+    color: var(--color-text);
+    background: var(--color-border);
+  }
+</style>
