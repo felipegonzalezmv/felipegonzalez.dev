@@ -4,11 +4,11 @@ import { EXPERIENCES } from '@data/experience';
 
 <section id="experience" class="experience section">
   <div class="container">
-    <h2 class="section-title">Work Experience</h2>
+    <h2 class="section-title reveal reveal-up">Work Experience</h2>
     
     <div class="timeline">
       {EXPERIENCES.map((exp, index) => (
-        <article class="timeline-item">
+        <article class={`timeline-item reveal reveal-left`} style={`animation-delay: ${index * 150}ms;`}>
           <div class="timeline-marker">
             <span class="marker-dot"></span>
             {index < EXPERIENCES.length - 1 && <span class="marker-line"></span>}

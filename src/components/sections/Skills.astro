@@ -12,14 +12,14 @@ const groupedSkills = SKILLS.reduce((acc, skill) => {
 
 <section id="skills" class="skills section">
   <div class="container">
-    <h2 class="section-title">Skills & Technologies</h2>
-    <p class="skills-intro">
+    <h2 class="section-title reveal reveal-up">Skills & Technologies</h2>
+    <p class="skills-intro reveal reveal-up" style="animation-delay: 100ms;">
       Technologies and tools I've been working with throughout my career
     </p>
     
     <div class="skills-grid">
-      {Object.entries(groupedSkills).map(([category, skills]) => (
-        <div class="skill-category">
+      {Object.entries(groupedSkills).map(([category, skills], index) => (
+        <div class={`skill-category reveal reveal-up`} style={`animation-delay: ${(index + 1) * 100}ms;`}>
           <h3 class="category-title">{SKILL_CATEGORIES[category as keyof typeof SKILL_CATEGORIES]}</h3>
           <div class="skill-tags">
             {skills.map((skill) => (

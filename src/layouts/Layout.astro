@@ -67,17 +67,35 @@ const pageTitle = title === SITE.title ? title : `${title} | ${SITE.title}`;
           localStorage.setItem('theme', theme);
         };
         
-        // Set initial theme
         setTheme(getTheme());
         
-        // Setup toggle listener when DOM is ready
         document.addEventListener('DOMContentLoaded', () => {
+          // Theme toggle
           const themeToggle = document.getElementById('theme-toggle');
           if (themeToggle) {
             themeToggle.addEventListener('click', () => {
               const currentTheme = document.documentElement.getAttribute('data-theme');
               setTheme(currentTheme === 'dark' ? 'light' : 'dark');
             });
+          }
+          
+          // Scroll reveal animations
+          const revealElements = document.querySelectorAll('.reveal');
+          
+          if (revealElements.length > 0) {
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('active');
+                  observer.unobserve(entry.target);
+                }
+              });
+            }, {
+              threshold: 0.1,
+              rootMargin: '0px 0px -50px 0px'
+            });
+            
+            revealElements.forEach(el => observer.observe(el));
           }
         });
       })();
