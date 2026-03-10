@@ -6,7 +6,7 @@ import ThemeToggle from './ThemeToggle.astro';
 <header class="header">
   <div class="container header-inner">
     <a href="/" class="logo" aria-label="Home">
-      <span class="logo-text">FG</span>
+      <img src="/images/logo.png" alt="FG Logo" class="logo-img" />
     </a>
     
     <nav class="nav" aria-label="Main navigation">
@@ -65,15 +65,18 @@ import ThemeToggle from './ThemeToggle.astro';
     align-items: center;
   }
   
-  .logo-text {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-text);
-    transition: color var(--transition-fast);
+  .logo-img {
+    height: 2.75rem;
+    width: auto;
+    transition: opacity var(--transition-fast);
   }
   
-  .logo:hover .logo-text {
-    color: var(--color-accent);
+  .logo:hover .logo-img {
+    opacity: 0.8;
+  }
+  
+  :global([data-theme="dark"]) .logo-img {
+    filter: invert(1);
   }
   
   .nav {
