@@ -8,7 +8,7 @@ export const SITE = {
 
 export const SOCIAL_LINKS = {
   github: 'https://github.com/felipegonzalezmv',
-  linkedin: '', // Add when available
+  linkedin: 'https://www.linkedin.com/in/juan-felipe-gonzalez-b31759188/',
 };
 
 export const NAV_LINKS = [
