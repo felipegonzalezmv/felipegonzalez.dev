@@ -1,0 +1,135 @@
+---
+
+---
+
+<section id="about" class="about section">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    
+    <div class="about-content">
+      <div class="about-text">
+        <p>
+          I'm a Systems Engineer with a strong frontend focus and over <strong>6 years of experience</strong> 
+          specializing in React ecosystems. I have a proven track record in delivering responsive 
+          web applications with exceptional user experiences.
+        </p>
+        
+        <p>
+          My expertise spans <strong>React, Next.js, and modern JavaScript/TypeScript</strong>, 
+          complemented by solid backend skills in <strong>Node.js and Python</strong>. I combine 
+          formal engineering education with hands-on expertise in modern web development technologies.
+        </p>
+        
+        <p>
+          Currently, I'm working at <strong>Wazuh</strong> as a Software Engineer, contributing to 
+          the development of new features for the Wazuh Dashboard, an open-source security platform 
+          used by organizations worldwide.
+        </p>
+        
+        <p>
+          When I'm not coding, I'm always looking for new technologies to learn and ways to 
+          improve my skills. I believe in writing clean, maintainable code and creating products 
+          that make a difference.
+        </p>
+      </div>
+      
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <span class="highlight-number">6+</span>
+          <span class="highlight-label">Years of Experience</span>
+        </div>
+        
+        <div class="highlight-card">
+          <span class="highlight-number">4</span>
+          <span class="highlight-label">Companies Worked</span>
+        </div>
+        
+        <div class="highlight-card">
+          <span class="highlight-number">C1</span>
+          <span class="highlight-label">English Level</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+  
+  @media (min-width: 768px) {
+    .about-content {
+      grid-template-columns: 2fr 1fr;
+      gap: var(--space-3xl);
+    }
+  }
+  
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+  
+  .about-text p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+  
+  .about-text strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+  
+  .about-highlights {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+  
+  @media (min-width: 768px) {
+    .about-highlights {
+      flex-direction: column;
+    }
+  }
+  
+  .highlight-card {
+    flex: 1;
+    min-width: 140px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    text-align: center;
+    transition: all var(--transition-normal);
+  }
+  
+  @media (min-width: 768px) {
+    .highlight-card {
+      text-align: left;
+    }
+  }
+  
+  .highlight-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+  
+  .highlight-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1;
+  }
+  
+  .highlight-label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+</style>
