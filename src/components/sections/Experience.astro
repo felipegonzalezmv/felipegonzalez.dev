@@ -1,0 +1,173 @@
+---
+import { EXPERIENCES } from '@data/experience';
+---
+
+<section id="experience" class="experience section">
+  <div class="container">
+    <h2 class="section-title">Work Experience</h2>
+    
+    <div class="timeline">
+      {EXPERIENCES.map((exp, index) => (
+        <article class="timeline-item">
+          <div class="timeline-marker">
+            <span class="marker-dot"></span>
+            {index < EXPERIENCES.length - 1 && <span class="marker-line"></span>}
+          </div>
+          
+          <div class="timeline-content">
+            <header class="exp-header">
+              <div class="exp-title-group">
+                <h3 class="exp-position">{exp.position}</h3>
+                <p class="exp-company">{exp.company}</p>
+              </div>
+              <time class="exp-date">
+                {exp.startDate} — {exp.endDate ?? 'Present'}
+              </time>
+            </header>
+            
+            <ul class="exp-description">
+              {exp.description.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            
+            {exp.technologies && (
+              <div class="exp-technologies">
+                {exp.technologies.map((tech) => (
+                  <span class="tech-tag">{tech}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+  
+  .timeline-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-lg);
+  }
+  
+  .timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.375rem;
+  }
+  
+  .marker-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    flex-shrink: 0;
+  }
+  
+  .marker-line {
+    width: 2px;
+    flex: 1;
+    background: var(--color-border);
+    margin-top: var(--space-sm);
+  }
+  
+  .timeline-content {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    transition: all var(--transition-normal);
+  }
+  
+  .timeline-content:hover {
+    border-color: var(--color-accent);
+  }
+  
+  .exp-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+  
+  @media (min-width: 640px) {
+    .exp-header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+  
+  .exp-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  
+  .exp-position {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  
+  .exp-company {
+    font-size: 0.9375rem;
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+  
+  .exp-date {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+  
+  .exp-description {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+  
+  .exp-description li {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    padding-left: var(--space-md);
+    position: relative;
+  }
+  
+  .exp-description li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted);
+  }
+  
+  .exp-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-border);
+  }
+  
+  .tech-tag {
+    display: inline-block;
+    padding: 0.125rem var(--space-sm);
+    background: var(--color-bg);
+    color: var(--color-text-muted);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+</style>
